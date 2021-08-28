@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router";
 import { ChartBarIcon, CollectionIcon, ClipboardListIcon, LogoutIcon } from "@heroicons/react/outline"
+import Cookies from "js-cookie"
 
 export default function Sidebar() {
+    const navigate = useNavigate();
+    
     return (
         <>
             <div className="w-64 h-full flex-shrink-0 relative">
@@ -26,7 +30,11 @@ export default function Sidebar() {
                     </NavLink>
                 </div>
                 <div className="absolute bottom-0 h-20 flex items-center w-full">
-                    <NavLink to="/login" className="font-normal flex items-center space-x-1 py-4 pl-10 text-sm text-primary hover:text-secondary-800 transition duration-200 ease-in-out">
+                    <NavLink to="/login" onClick={() => {
+                            Cookies.remove('token')
+                            navigate('/login')
+                        }} 
+                    className="font-normal cursor-pointer flex items-center space-x-1 py-4 pl-10 text-sm text-primary hover:text-secondary-800 transition duration-200 ease-in-out">
                         <LogoutIcon className="h-5 w-5" />
                         <span>Logout</span>
                     </NavLink>

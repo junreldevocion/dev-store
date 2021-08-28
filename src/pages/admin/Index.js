@@ -1,6 +1,3 @@
-import cookie from 'js-cookie'
-// import { withRouter } from 'react-router-dom'
-
 import Layout from '../../components/Layout'
 
 function Dashboard() {

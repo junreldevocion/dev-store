@@ -17,9 +17,9 @@ export default function api() {
 
     api.interceptors.response.use(function (response) {
         return response;
-      }, function (error) {
+    }, function (error) {
         return Promise.reject(error);
-      });
+    });
 
     return api;
 }

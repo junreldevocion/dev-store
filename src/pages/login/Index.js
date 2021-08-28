@@ -6,10 +6,9 @@ import api from '../../util/api'
 
 export default function Login() {
 
-    const [cookie, setCookie] = useCookies(['name']);
-
-    let navigate = useNavigate();
+    const [cookie, setCookie] = useCookies();
     const [formInput, setFormInput] = useState({email: '', password: ''})
+    let navigate = useNavigate();
 
     const updateFormInput = (e) => {
         e.persist();
